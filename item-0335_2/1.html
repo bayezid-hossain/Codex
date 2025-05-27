@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Simple Bootstrap Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <div class="container-fluid sticky-top px-0">
+      <div
+        class="container-fluid topbar bg-dark d-none d-lg-block"
+      >
+        <div class="container px-0">
+          <div
+            class="topbar-top d-flex justify-content-between flex-lg-wrap"
+          >
+            <div class="top-info flex-grow-0">
+              <span
+                class="rounded-circle btn-sm-square bg-primary me-2"
+              >
+                <i class="fas fa-bolt text-white"></i>
+              </span>
+              <div
+                class="pe-2 me-3 border-end border-white d-flex align-items-center"
+              >
+                <p class="mb-0 text-white fs-6 fw-normal">
+                  Trending
+                </p>
+              </div>
+              <div
+                class="overflow-hidden"
+                style="width: 735px"
+              >
+                <div id="note" class="ps-2">
+                  <img
+                    src="img/features-fashion.jpg"
+                    class="img-fluid rounded-circle border border-3 border-primary me-2"
+                    style="width: 30px; height: 30px"
+                    alt=""
+                  />
+                  <a href="#"
+                    ><p class="text-white mb-0 link-hover">
+                      Newsan unknown printer took a galley
+                      of type andscrambled Newsan.
+                    </p></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="top-link flex-lg-wrap">
+              <i
+                class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"
+              >
+                <span class="text-body"
+                  >Tuesday, Sep 12, 2024</span
+                ></i
+              >
+              <div class="d-flex icon">
+                <p class="mb-0 text-white me-2">
+                  Follow Us:
+                </p>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-facebook-f text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-twitter text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-instagram text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-youtube text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-linkedin-in text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-skype text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class=""
+                  ><i
+                    class="fab fa-pinterest-p text-body link-hover"
+                  ></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid bg-light">
+        <div class="container px-0">
+          <nav class="navbar navbar-light navbar-expand-xl">
+            <a href="index.html" class="navbar-brand mt-3">
+              <p
+                class="text-primary display-6 mb-2"
+                style="line-height: 0"
+              >
+                Wokox
+              </p>
+              <small
+                class="text-body fw-normal"
+                style="letter-spacing: 12px"
+                >.com</small
+              >
+            </a>
+            <button
+              class="navbar-toggler py-2 px-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+            >
+              <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse bg-light py-3"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mx-auto border-top">
+                <a
+                  href="index.html"
+                  class="nav-item nav-link active"
+                  >Home</a
+                >
+                <a
+                  href="detail-page.html"
+                  class="nav-item nav-link"
+                  >Detail&nbsp; Page</a
+                >
+                <a href="404.html" class="nav-item nav-link"
+                  >404 Page</a
+                >
+
+                <!-- Write mega menu code here with desktop, mobile, ipad responsive css, keep class name unique so that it will not conflict already dropdown below. The mega menu have 4 columns and each columns have 4 rows with link hover text background "#eee". Text will be "Best 10 Super Trending apps for the future Ai Tools". The more text comes in the next line. each column same width. Also megamenu should not be go out of any device screen.
+                          -->
+                <div
+                  class="nav-item dropdown wokox-mega-menu"
+                >
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    >Mega Menu</a
+                  >
+                  <div
+                    class="dropdown-menu m-0 bg-light rounded-0 border-0"
+                  >
+                    <div class="container">
+                      <div class="row g-0">
+                        <div class="col-lg-3">
+                          <div class="mega-menu-column p-4">
+                            <h6 class="mb-3">
+                              Trending Apps
+                            </h6>
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="mega-menu-column p-4">
+                            <h6 class="mb-3">
+                              AI Tools Insights
+                            </h6>
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="mega-menu-column p-4">
+                            <h6 class="mb-3">
+                              Future of Technology
+                            </h6>
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="mega-menu-column p-4">
+                            <h6 class="mb-3">
+                              Latest Tech News
+                            </h6>
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools.</a
+                            >
+                            <a
+                              href="#"
+                              class="d-block py-2 px-3 text-body link-hover-eee"
+                              >Best 10 Super Trending apps
+                              for the future Ai Tools. The
+                              more text comes in the next
+                              line.</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    >Dropdown</a
+                  >
+                  <div
+                    class="dropdown-menu m-0 bg-secondary rounded-0"
+                  >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 1</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 2</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 3</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 4</a
+                    >
+                  </div>
+                </div>
+                <a
+                  href="contact.html"
+                  class="nav-item nav-link"
+                  >Contact Us</a
+                >
+              </div>
+              <div
+                class="d-flex flex-nowrap border-top pt-3 pt-xl-0"
+              >
+                <div class="d-flex">
+                  <img
+                    src="img/weather-icon.png"
+                    class="img-fluid w-100 me-2"
+                    alt=""
+                  />
+                  <div class="d-flex align-items-center">
+                    <strong class="fs-4 text-secondary"
+                      >31°C</strong
+                    >
+                    <div
+                      class="d-flex flex-column ms-2"
+                      style="width: 150px"
+                    >
+                      <span class="text-body"
+                        >NEW YORK,</span
+                      >
+                      <small>Mon. 10 jun 2024</small>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto"
+                  data-bs-toggle="modal"
+                  data-bs-target="#searchModal"
+                >
+                  <i class="fas fa-search text-primary"></i>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Mega Menu Specific CSS -->
+    <style>
+      .wokox-mega-menu .dropdown-menu {
+        width: 100%;
+        left: 0 !important; /* Ensure it starts from the left edge */
+      }
+
+      .wokox-mega-menu .mega-menu-column {
+        border-right: 1px solid #eee;
+      }
+
+      .wokox-mega-menu .mega-menu-column:last-child {
+        border-right: none;
+      }
+
+      .wokox-mega-menu .link-hover-eee:hover {
+        background-color: #eee;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        .wokox-mega-menu .dropdown-menu .container .row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .wokox-mega-menu .dropdown-menu .col-lg-3 {
+          width: 50%; /* Adjust column width for smaller desktops/tablets */
+        }
+        .wokox-mega-menu .mega-menu-column {
+          border-right: none;
+          border-bottom: 1px solid #eee;
+        }
+        .wokox-mega-menu .mega-menu-column:last-child {
+          border-bottom: none;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .wokox-mega-menu .dropdown-menu {
+          padding: 15px;
+        }
+        .wokox-mega-menu .dropdown-menu .col-lg-3 {
+          width: 100%; /* Full width for tablets */
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* Mega menu might become too long on very small screens, consider adjustments */
+        .wokox-mega-menu .dropdown-menu {
+          max-height: 400px; /* Example: Add a max height and scroll */
+          overflow-y: auto;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

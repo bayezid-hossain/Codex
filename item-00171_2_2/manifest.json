@@ -1,0 +1,26 @@
+{
+  "name": "LeadEcho",
+  "version": "1.0",
+  "description": "Monitor and download API requests from Ocean.io",
+  "manifest_version": 3,
+  "permissions": ["webRequest", "storage", "downloads"],
+  "host_permissions": [
+    "*://67f69c6542d6c71cca62b961.mockapi.io/api/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}

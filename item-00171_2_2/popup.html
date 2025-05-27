@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LeadEcho</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>LeadEcho</h1>
+      <p>Monitoring Ocean.io API Requests</p>
+    </header>
+
+    <div class="request-container">
+      <div class="no-requests" id="no-requests">
+        <p>No API requests detected yet.</p>
+        <p>
+          Visit
+          <a
+            href="https://67f69c6542d6c71cca62b961.mockapi.io/api/hello/users"
+            target="_blank"
+            >Ocean.io</a
+          >
+          to capture requests.
+        </p>
+      </div>
+
+      <ul id="request-list" class="request-list"></ul>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

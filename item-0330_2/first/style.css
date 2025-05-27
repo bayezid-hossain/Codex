@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    /* Adjust as needed for the trigger section height */
+}
+
+.left-column,
+.right-column {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Space between images */
+    overflow: hidden;
+    /* To hide overflowing images during animation */
+}
+
+.image-container img {
+    width: 80%;
+    /* Adjust image size */
+    display: block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    /* Initial off-screen position */
+    opacity: 0;
+}
+
+.right-column {
+    display: flex;
+}
+
+.stats-column,
+.labels-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.stat-item {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    transform: translateX(-50px);
+    /* Initial off-screen position */
+    opacity: 0;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    color: #777;
+    transform: translateX(50px);
+    /* Initial off-screen position */
+    opacity: 0;
+}

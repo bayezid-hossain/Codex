@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Simple Bootstrap Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid sticky-top px-0">
+      <div
+        class="container-fluid topbar bg-dark d-none d-lg-block"
+      >
+        <div class="container px-0">
+          <div
+            class="topbar-top d-flex justify-content-between flex-lg-wrap"
+          >
+            <div class="top-info flex-grow-0">
+              <span
+                class="rounded-circle btn-sm-square bg-primary me-2"
+              >
+                <i class="fas fa-bolt text-white"></i>
+              </span>
+              <div
+                class="pe-2 me-3 border-end border-white d-flex align-items-center"
+              >
+                <p class="mb-0 text-white fs-6 fw-normal">
+                  Trending
+                </p>
+              </div>
+              <div
+                class="overflow-hidden"
+                style="width: 735px"
+              >
+                <div id="note" class="ps-2">
+                  <img
+                    src="img/features-fashion.jpg"
+                    class="img-fluid rounded-circle border border-3 border-primary me-2"
+                    style="width: 30px; height: 30px"
+                    alt=""
+                  />
+                  <a href="#"
+                    ><p class="text-white mb-0 link-hover">
+                      Newsan unknown printer took a galley
+                      of type andscrambled Newsan.
+                    </p></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="top-link flex-lg-wrap">
+              <i
+                class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"
+              >
+                <span class="text-body"
+                  >Tuesday, Sep 12, 2024</span
+                ></i
+              >
+              <div class="d-flex icon">
+                <p class="mb-0 text-white me-2">
+                  Follow Us:
+                </p>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-facebook-f text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-twitter text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-instagram text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-youtube text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-linkedin-in text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class="me-2"
+                  ><i
+                    class="fab fa-skype text-body link-hover"
+                  ></i
+                ></a>
+                <a href="" class=""
+                  ><i
+                    class="fab fa-pinterest-p text-body link-hover"
+                  ></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid bg-light">
+        <div class="container px-0">
+          <nav class="navbar navbar-light navbar-expand-xl">
+            <a href="index.html" class="navbar-brand mt-3">
+              <p
+                class="text-primary display-6 mb-2"
+                style="line-height: 0"
+              >
+                Wokox
+              </p>
+              <small
+                class="text-body fw-normal"
+                style="letter-spacing: 12px"
+                >.com</small
+              >
+            </a>
+            <button
+              class="navbar-toggler py-2 px-3"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+            >
+              <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse bg-light py-3"
+              id="navbarCollapse"
+            >
+              <div class="navbar-nav mx-auto border-top">
+                <a
+                  href="index.html"
+                  class="nav-item nav-link active"
+                  >Home</a
+                >
+                <a
+                  href="detail-page.html"
+                  class="nav-item nav-link"
+                  >Detail Page</a
+                >
+                <a href="404.html" class="nav-item nav-link"
+                  >404 Page</a
+                >
+
+                <div
+                  class="nav-item dropdown wokox-mega-menu"
+                >
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    >AI Tools</a
+                  >
+                  <div
+                    class="dropdown-menu wokox-mega-menu-content p-3"
+                  >
+                    <div class="container-fluid">
+                      <div class="row g-3">
+                        <div class="col-lg-3 col-md-6">
+                          <h6 class="fw-bold mb-3">
+                            Content Creation
+                          </h6>
+                          <ul
+                            class="list-unstyled wokox-menu-links"
+                          >
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >ChatGPT Plus</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Jasper AI</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Copy.ai</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >WriteSonic</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <h6 class="fw-bold mb-3">
+                            Image Generation
+                          </h6>
+                          <ul
+                            class="list-unstyled wokox-menu-links"
+                          >
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Midjourney</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >DALL-E 3</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Stable Diffusion</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Adobe Firefly</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <h6 class="fw-bold mb-3">
+                            Productivity Tools
+                          </h6>
+                          <ul
+                            class="list-unstyled wokox-menu-links"
+                          >
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Notion AI</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Otter.ai</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Mem.ai</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="dropdown-item px-0 py-2"
+                                >Motion</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <h6 class="fw-bold mb-3">
+                            Featured
+                          </h6>
+                          <p class="mb-2">
+                            Best 10 Super Trending apps for
+                            the future Ai Tools.
+                          </p>
+                          <p class="mb-0">
+                            Exclusive AI tools that are
+                            reshaping how we work and create
+                            in 2024.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    >Dropdown</a
+                  >
+                  <div
+                    class="dropdown-menu m-0 bg-secondary rounded-0"
+                  >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 1</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 2</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 3</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dropdown 4</a
+                    >
+                  </div>
+                </div>
+                <a
+                  href="contact.html"
+                  class="nav-item nav-link"
+                  >Contact Us</a
+                >
+              </div>
+              <div
+                class="d-flex flex-nowrap border-top pt-3 pt-xl-0"
+              >
+                <div class="d-flex">
+                  <img
+                    src="img/weather-icon.png"
+                    class="img-fluid w-100 me-2"
+                    alt=""
+                  />
+                  <div class="d-flex align-items-center">
+                    <strong class="fs-4 text-secondary"
+                      >31°C</strong
+                    >
+                    <div
+                      class="d-flex flex-column ms-2"
+                      style="width: 150px"
+                    >
+                      <span class="text-body"
+                        >NEW YORK,</span
+                      >
+                      <small>Mon. 10 jun 2024</small>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto"
+                  data-bs-toggle="modal"
+                  data-bs-target="#searchModal"
+                >
+                  <i class="fas fa-search text-primary"></i>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <style>
+      .wokox-mega-menu-content {
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 0;
+        background-color: white;
+      }
+
+      .wokox-menu-links a {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .wokox-menu-links a:hover {
+        background-color: #eee;
+        padding-left: 5px !important;
+      }
+
+      @media (max-width: 1199.98px) {
+        .wokox-mega-menu-content {
+          width: 100%;
+          max-height: 80vh;
+          overflow-y: auto;
+        }
+
+        .wokox-mega-menu-content .row {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .wokox-mega-menu {
+          position: static;
+        }
+
+        .wokox-mega-menu-content {
+          left: 0;
+          right: 0;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

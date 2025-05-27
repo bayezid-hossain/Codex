@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Number of Ratings 2016-2020</title>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="./lib/d3.v5.min.js"></script>
+    <style>
+        svg {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .axis text {
+            font-size: 14px;
+        }
+
+        .line {
+            fill: none;
+            stroke-width: 2px;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <h1></h1>
+    <svg id="chart" width="900" height="500"></svg>
+
+    <script>
+        // Load and parse the CSV data
+        d3.csv("http://localhost:3000/csv").then(function (data) {
+            console.log(data)
+            // Parse the date using d3.timeParse
+            var parseTime = d3.timeParse("%Y-%m-%d");
+
+            // Convert data types and parse dates
+            data.forEach(function (d) {
+                d.date = parseTime(d.date);
+                console.log("Parsed data point:", d);
+                d.Catan = +d["Catan=count"];
+                d.Dominion = +d["Dominion=count"];
+                d.Codenames = +d["Codenames=count"];
+                d["Terraforming Mars"] = +d["Terraforming Mars=count"];
+                d.Gloomhaven = +d["Gloomhaven=count"];
+                d["Magic: The Gathering"] = +d["Magic: The Gathering=count"];
+                d.Dixit = +d["Dixit=count"];
+                d.Monopoly = +d["Monopoly=count"];
+            });
+
+            // Set the dimensions and margins of the graph
+            var margin = { top: 50, right: 120, bottom: 50, left: 50 },
+                width = 900 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
+
+            // Append the SVG object to the body of the page
+            var svg = d3.select("#chart")
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+            // X axis: scale and draw
+            var x = d3.scaleTime()
+                .domain(d3.extent(data, d => d.date))
+                .range([0, width]);
+
+            var xAxis = d3.axisBottom(x)
+                .ticks(d3.timeMonth.every(3))  // Tick every 3 months
+                .tickFormat(d3.timeFormat("%b %y"));  // Format ticks as Jan 17, Apr 17, etc.
+
+            svg.append("g")
+                .attr("transform", `translate(0, ${height})`)
+                .call(xAxis)
+                .append("text")
+                .attr("x", width / 2)
+                .attr("y", 40)
+                .attr("fill", "black")
+                .style("text-anchor", "middle")
+                .text("Month");
+
+            // Y axis: scale and draw
+            var y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => Math.max(
+                    d.Catan, d.Dominion, d.Codenames, d["Terraforming Mars"],
+                    d.Gloomhaven, d["Magic: The Gathering"], d.Dixit, d.Monopoly))])
+                .range([height, 0]);
+
+            var yAxis = d3.axisLeft(y);
+
+            svg.append("g")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -height / 2)
+                .attr("y", -40)
+                .attr("fill", "black")
+                .style("text-anchor", "middle")
+                .text("Num of Ratings");
+
+            // Colors for the lines
+            var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            // Line generator
+            var line = d3.line()
+                .x(d => x(d.date))
+                .y(d => y(d.value));
+
+            // Define the games to visualize
+            var games = ["Catan", "Dominion", "Codenames", "Terraforming Mars", "Gloomhaven", "Magic: The Gathering", "Dixit", "Monopoly"];
+
+            // Loop through each game and append a line for each one
+            games.forEach(function (game, i) {
+                var lineData = data.map(d => ({ date: d.date, value: d[game] }));
+
+                // Draw the line
+                svg.append("path")
+                    .datum(lineData)
+                    .attr("fill", "none")
+                    .attr("stroke", color(game))
+                    .attr("stroke-width", 1.5)
+                    .attr("class", "line")
+                    .attr("d", line)
+                    .on("mouseover", function () {
+                        d3.select(this).classed("hover-line", true);
+                    })
+                    .on("mouseout", function () {
+                        d3.select(this).classed("hover-line", false);
+                    });
+
+                // Add the game name at the end of the line
+                svg.append("text")
+                    .attr("transform", `translate(${x(lineData[lineData.length - 1].date)},${y(lineData[lineData.length - 1].value)})`)
+                    .attr("x", 5)
+                    .attr("dy", "0.35em")
+                    .style("font-size", "12px")
+                    .style("fill", color(game))
+                    .text(game);
+            });
+
+            // Add chart title
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", -20)
+                .attr("text-anchor", "middle")
+                .style("font-size", "20px")
+                .text("Number of Ratings 2016-2020");
+        });
+    </script>
+
+    <div id='signature'>Akruapong3</div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+stages:
+  - test
+  - snyk-container-scan
+snyk:code-test:
+  stage: test
+  image:
+    name: snyk/snyk:java
+    entrypoint: [""]
+  tags:
+    - docker
+    - eu
+  needs: []
+  script:
+    - snyk auth $SNYK_TOKEN
+    - snyk code test --remote-repo-url=$CI_PROJECT_PATH --project-name='culinary-device-lifecycle' --target-reference=$CI_COMMIT_REF_NAME --severity-threshold=high --json-file-output=results-code-test.json
+    - echo "Snyk code test results saved to results-code-test.json in artifacts"
+  artifacts:
+    when: always
+    paths:
+      - "results-code-test.json"
+  allow_failure: true
+
+snyk:test:
+  stage: test
+  image:
+    name: snyk/snyk:java
+    entrypoint: [""]
+  tags:
+    - docker
+    - eu
+  needs: []
+  script:
+    - snyk auth $SNYK_TOKEN
+    - snyk test --remote-repo-url=$CI_PROJECT_PATH --project-name='culinary-device-lifecycle' --target-reference=$CI_COMMIT_REF_NAME --severity-threshold=critical --json-file-output=results-test.json
+    - echo "Snyk results saved to results-test.json in artifacts"
+  artifacts:
+    when: always
+    paths:
+      - "results-test.json"
+  allow_failure: true
+
+snyk:container-test:
+  stage: snyk-container-scan
+  image:
+    name: snyk/snyk:alpine
+    entrypoint: [""]
+  tags:
+    - docker
+    - eu
+  needs:
+    - build
+  before_script:
+    - export SNYK_REGISTRY_USERNAME="${HARBOR_USERNAME}"
+    - export SNYK_REGISTRY_PASSWORD="${HARBOR_PASSWORD}"
+  script:
+    - echo "CI_COMMIT_REF_SLUG = $CI_COMMIT_REF_SLUG"
+    - echo "CI_COMMIT_SHORT_SHA = $CI_COMMIT_SHORT_SHA"
+    - echo "IMAGE_NAME = $HARBOR_REGISTRY/culinary-cadd/${APP_NAME}:$CI_COMMIT_SHORT_SHA"
+    - snyk auth $SNYK_TOKEN
+    - snyk container test --project-name='culinary-device-lifecycle' --target-reference=cadd-service --severity-threshold=critical --json-file-output=results-container.json $HARBOR_REGISTRY/culinary-cadd/${APP_NAME}:$CI_COMMIT_SHORT_SHA
+    - echo "Snyk results saved to results-container.json in artifacts"
+  artifacts:
+    when: always
+    paths:
+      - "results-container.json"
+  allow_failure: true
+
+generate_snyk_html_reports:
+  stage: snyk-container-scan
+  image: library/node:20.14.0
+  needs:
+    - job: snyk:test
+      artifacts: true
+    - job: snyk:container-test
+      artifacts: true
+    - job: snyk:code-test
+      artifacts: true
+  script:
+    - npm install -g snyk-to-html
+    - snyk-to-html -i results-test.json -o snyk_report_test.html
+    - snyk-to-html -i results-container.json -o snyk_report_container.html
+    - snyk-to-html -i results-code-test.json -o snyk_report_code_test.html -d
+    - echo "HTML reports generated as snyk_report_test.html, snyk_report_container.html, and snyk_report_code_test.html"
+    - PROJECT_PATH=$(echo $CI_PROJECT_PATH | sed 's/^nwot\///')
+    - |
+      echo "Artifact URLs on GitLab Pages:" 
+      echo "Test report: https://${CI_PROJECT_ROOT_NAMESPACE}.pages.vorwerk-digital.com/-/${PROJECT_PATH}/-/jobs/${CI_JOB_ID}/artifacts/snyk_report_test.html" 
+      echo "Container report: https://${CI_PROJECT_ROOT_NAMESPACE}.pages.vorwerk-digital.com/-/${PROJECT_PATH}/-/jobs/${CI_JOB_ID}/artifacts/snyk_report_container.html" 
+      echo "Code test report: https://${CI_PROJECT_ROOT_NAMESPACE}.pages.vorwerk-digital.com/-/${PROJECT_PATH}/-/jobs/${CI_JOB_ID}/artifacts/snyk_report_code_test.html"
+  artifacts:
+    when: always
+    paths:
+      - "snyk_report_test.html"
+      - "snyk_report_container.html"
+      - "snyk_report_code_test.html"

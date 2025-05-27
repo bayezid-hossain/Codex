@@ -1,0 +1,10 @@
+- name: item-0695_2
+  hosts: localhost
+  tasks:
+    - name: Download latest stable kubectl binary
+      get_url:
+        url: "https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl"
+        dest: "/usr/local/bin/kubectl"
+        mode: "0755"
+      vars:
+        kubectl_version: "{{ lookup('url', 'https://dl.k8s.io/release/stable.txt') | trim }}"

@@ -1,0 +1,52 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 16px;
+    min-width: 400px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.actions {
+    margin-bottom: 16px;
+}
+
+#request-list {
+    list-style: none;
+    padding: 0;
+}
+
+.request-item {
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    padding: 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.request-details {
+    flex-grow: 1;
+}
+
+.request-url {
+    font-weight: 500;
+    color: #1a73e8;
+    /* Google blue */
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.request-timestamp {
+    color: #757575;
+    font-size: 12px;
+}
+
+.mdc-button {
+    margin-left: 16px;
+}

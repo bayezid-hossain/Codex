@@ -1,0 +1,11 @@
+- name: item-0695_2
+  hosts: localhost
+  tasks:
+    - name: Download latest stable kubectl
+      ansible.builtin.get_url:
+        url: "https://dl.k8s.io/release/{{ k8s_stable_version }}/bin/linux/amd64/kubectl"
+        dest: /usr/local/bin/kubectl # Or any desired location
+        mode: "0755"
+        force: yes
+      vars:
+        k8s_stable_version: "{{ lookup('url', 'https://dl.k8s.io/release/stable.txt') | trim }}"

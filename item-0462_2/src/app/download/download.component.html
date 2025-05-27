@@ -1,0 +1,9 @@
+<div *ngIf="progressVisible" class="overlay">
+  <div class="progress-circle" [style.background]="conicGradient(progress)">
+    <div class="progress-circle-inner">{{ progress }}%</div>
+  </div>
+</div>
+<!-- to simulate the download i have created a button and callded the download document -->
+<button (click)="downloadDocument('123', 'MyDocument.pdf')">
+  Download Document
+</button>

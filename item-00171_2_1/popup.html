@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LeadEcho</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>LeadEcho</h1>
+
+      <div class="actions">
+        <button
+          id="clear-requests"
+          class="mdc-button mdc-button--outlined"
+        >
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">Clear</span>
+        </button>
+      </div>
+
+      <ul id="request-list"></ul>
+    </div>
+
+    <script src="popup.js"></script>
+
+    <!-- Include Material Design Components (MDC) for styling -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  </body>
+</html>

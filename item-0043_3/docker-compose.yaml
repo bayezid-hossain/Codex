@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      PGUSER: shadow
+      PGDATABASE: test
+      PGPASSWORD: shadow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shadow -d test"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db-data: {}

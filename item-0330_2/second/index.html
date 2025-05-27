@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>GSAP ScrollTrigger Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .scroll-section {
+        height: 500vh; /* Make the section tall for scrolling */
+        position: relative;
+      }
+
+      .sticky-container {
+        height: 100vh;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        display: flex;
+      }
+
+      .col {
+        width: 50%;
+        height: 100%;
+      }
+
+      /* Left column - Image container */
+      .image-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+
+      .image-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+      }
+
+      /* Right column - Stats */
+      .stats-container {
+        padding: 2rem;
+        display: flex;
+        height: 100%;
+      }
+
+      .stat-items-col {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .stat-labels-col {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 2rem;
+      }
+
+      .stat-item {
+        padding: 1.5rem 0;
+        font-size: 1.2rem;
+        opacity: 0.3;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+
+      .stat-item.active {
+        opacity: 1;
+        font-weight: bold;
+      }
+
+      .stat-label {
+        padding: 1rem 0;
+        font-size: 2rem;
+        line-height: 1.3;
+        position: absolute;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+
+      .stat-label.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Adding some style to the images and text */
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .stat-item-number {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-section">
+      <div class="sticky-container">
+        <!-- Left Column - Image Container -->
+        <div class="col">
+          <div class="image-container">
+            <img
+              src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              alt="Image 1"
+              class="image-slide"
+              id="image1"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              alt="Image 2"
+              class="image-slide"
+              id="image2"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              alt="Image 3"
+              class="image-slide"
+              id="image3"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+              alt="Image 4"
+              class="image-slide"
+              id="image4"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Fettjl2rGDjHBlCYCXcWMRAoKDr_AQOoXQ&s"
+              alt="Image 5"
+              class="image-slide"
+              id="image5"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column - Stats Container -->
+        <div class="col">
+          <div class="stats-container">
+            <!-- Stat Items Column -->
+            <div class="stat-items-col">
+              <div class="stat-item" id="stat-item1">
+                <div class="stat-item-number">01</div>
+                <div>First Stat</div>
+              </div>
+              <div class="stat-item" id="stat-item2">
+                <div class="stat-item-number">02</div>
+                <div>Second Stat</div>
+              </div>
+              <div class="stat-item" id="stat-item3">
+                <div class="stat-item-number">03</div>
+                <div>Third Stat</div>
+              </div>
+              <div class="stat-item" id="stat-item4">
+                <div class="stat-item-number">04</div>
+                <div>Fourth Stat</div>
+              </div>
+              <div class="stat-item" id="stat-item5">
+                <div class="stat-item-number">05</div>
+                <div>Fifth Stat</div>
+              </div>
+            </div>
+
+            <!-- Stat Labels Column -->
+            <div class="stat-labels-col">
+              <div class="stat-label" id="stat-label1">
+                <h2>First Statistic Description</h2>
+                <p>
+                  This is a detailed explanation of the
+                  first statistic and why it matters in this
+                  context.
+                </p>
+              </div>
+              <div class="stat-label" id="stat-label2">
+                <h2>Second Statistic Description</h2>
+                <p>
+                  Here's an in-depth look at the second
+                  statistic and its significance.
+                </p>
+              </div>
+              <div class="stat-label" id="stat-label3">
+                <h2>Third Statistic Description</h2>
+                <p>
+                  The third statistic offers insights into
+                  an important aspect of the topic.
+                </p>
+              </div>
+              <div class="stat-label" id="stat-label4">
+                <h2>Fourth Statistic Description</h2>
+                <p>
+                  This fourth data point demonstrates
+                  another critical dimension to consider.
+                </p>
+              </div>
+              <div class="stat-label" id="stat-label5">
+                <h2>Fifth Statistic Description</h2>
+                <p>
+                  Finally, the fifth statistic rounds out
+                  the complete picture with additional
+                  context.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GSAP and ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          // Initialize GSAP
+          gsap.registerPlugin(ScrollTrigger);
+
+          // Setup section heights
+          const totalSections = 5;
+          const sectionHeight = 100 / totalSections;
+
+          // Make the first item active by default
+          document.getElementById(
+            "image1"
+          ).style.opacity = 1;
+          document
+            .getElementById("stat-item1")
+            .classList.add("active");
+          document
+            .getElementById("stat-label1")
+            .classList.add("active");
+
+          // Create ScrollTrigger for each section
+          for (let i = 1; i <= totalSections; i++) {
+            ScrollTrigger.create({
+              trigger: ".scroll-section",
+              start: `${(i - 1) * sectionHeight}% top`,
+              end: `${i * sectionHeight}% top`,
+              onEnter: () => activateSection(i),
+              onEnterBack: () => activateSection(i),
+              markers: false,
+            });
+          }
+
+          // Function to activate the current section
+          function activateSection(index) {
+            // Reset all active states
+            document
+              .querySelectorAll(".image-slide")
+              .forEach((img) => (img.style.opacity = 0));
+            document
+              .querySelectorAll(".stat-item")
+              .forEach((item) =>
+                item.classList.remove("active")
+              );
+            document
+              .querySelectorAll(".stat-label")
+              .forEach((label) => {
+                label.classList.remove("active");
+                label.style.opacity = 0;
+              });
+
+            // Activate the current section
+            document.getElementById(
+              `image${index}`
+            ).style.opacity = 1;
+            document
+              .getElementById(`stat-item${index}`)
+              .classList.add("active");
+            document
+              .getElementById(`stat-label${index}`)
+              .classList.add("active");
+
+            // Add a subtle animation for the text
+            gsap.fromTo(
+              `#stat-label${index}`,
+              { y: 20, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: "power2.out",
+              }
+            );
+          }
+
+          // Add click functionality to stat items
+          document
+            .querySelectorAll(".stat-item")
+            .forEach((item, index) => {
+              item.addEventListener("click", () => {
+                const sectionIndex = index + 1;
+
+                // Calculate the scroll position
+                const scrollPosition =
+                  ((sectionIndex - 0.5) *
+                    sectionHeight *
+                    document.body.scrollHeight) /
+                  100;
+
+                // Scroll to the position
+                window.scrollTo({
+                  top: scrollPosition,
+                  behavior: "smooth",
+                });
+              });
+            });
+        }
+      );
+    </script>
+  </body>
+</html>

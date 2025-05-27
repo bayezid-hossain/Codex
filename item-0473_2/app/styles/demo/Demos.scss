@@ -1,0 +1,26 @@
+.demo-page {
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  .demo-button {
+    margin-top: 1rem;
+    background-color: #1abc9c;
+    color: white;
+
+    &:hover {
+      background-color: #16a085;
+    }
+  }
+
+  .demo-heading {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  .demo-description {
+    font-size: 1rem;
+    color: #7f8c8d;
+  }
+}
